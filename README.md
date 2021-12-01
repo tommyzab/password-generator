@@ -5,10 +5,10 @@
 
 
 #### Included options;
-(-D) Duplicates
-(-U) Upper-case letters
-(-L) Lower-case letters
-(-N) Numbers
+(-D) Duplicates,
+(-U) Upper-case letters,
+(-L) Lower-case letters,
+(-N) Numbers,
 (-S) Symbols
 
 
