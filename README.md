@@ -5,5 +5,5 @@
 
 #### clarifications;
 - `Password_Length` **needs** to be replaced with a valid ***number*** that will represent the length of the password
-- `-l` ***is necessary*** to include to be able and use the script
+- `-l` ***is necessary*** to include, to be able and use the script
 - `python` can be replaced with `python3`
