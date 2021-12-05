@@ -11,7 +11,7 @@ symbols = tuple(string.punctuation)
 
 
 # Adding cli arguments with the 'argparse' module
-parser = argparse.ArgumentParser(usage='use "%(prog)s --help" for more information', description='Password Generator - To dismiss any group of characters, include their flag while calling the script')
+parser = argparse.ArgumentParser(usage='use python "%(prog)s --help" for more information', description='Password Generator - To dismiss any group of characters, include their flag while calling the script')
 requiredNamed = parser.add_argument_group('required named arguments')
 requiredNamed.add_argument('-l', '--length', type=int, required=True, metavar='', help='The length of the password')
 parser.add_argument('-D', '--duplicates', required=False, action='store_false', help='Duplicates')
