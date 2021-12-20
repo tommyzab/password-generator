@@ -61,7 +61,6 @@ def build_argparse():
 
 
 if __name__ == '__main__':
-    # Inserting a new line for a cleaner output (nothing more really)
     print('\n' + 'Password Generator'.center(50, '*'))
 
     args = build_argparse()
