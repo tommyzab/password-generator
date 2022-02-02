@@ -9,7 +9,7 @@ numbers = tuple(x for x in range(0, 10))
 symbols = tuple(string.punctuation)
 
 
-# The functions that creates the whole password
+# The function that creates the whole password
 def generate(length: int, duplicates: bool, symbol: bool, number: bool, lower: bool, upper: bool):
     temp_list = []
     generated_password = []
