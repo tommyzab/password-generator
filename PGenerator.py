@@ -9,7 +9,7 @@ numbers = tuple(x for x in range(0, 10))
 symbols = tuple(string.punctuation)
 
 
-# The functions that create the whole password
+# The functions that creates the whole password
 def generate(length: int, duplicates: bool, symbol: bool, number: bool, lower: bool, upper: bool):
     temp_list = []
     generated_password = []
@@ -41,7 +41,7 @@ def generate(length: int, duplicates: bool, symbol: bool, number: bool, lower: b
 
     return "".join(map(str, generated_password))
 
-
+# (CLI) argeparse configuration
 def build_argparse():
     parser = argparse.ArgumentParser(usage='use "python %(prog)s --help" for more information',
                                      description='Password Generator - To dismiss any group of characters, '
@@ -67,5 +67,6 @@ if __name__ == '__main__':
 
     # Letting the user know that if the inserted number has no length, there won't be any output
     assert args.length > 0, 'Password length has to be strictly positive'
-
+    
+    # The returned value (printed password)
     print(f'\n Generated password: {generate(**vars(args))} \n')
