@@ -1,6 +1,7 @@
 import random
 import string
 import argparse
+import pyperclip
 
 # Declaring letters, numbers & unique symbols (used a tuple because it's immutable)
 lower_case = tuple(string.ascii_lowercase)
@@ -10,7 +11,7 @@ symbols = tuple(string.punctuation)
 
 
 # The function that creates the whole password
-def generate(length: int, duplicates: bool, symbol: bool, number: bool, lower: bool, upper: bool):
+def generate(length: int, duplicates: bool, symbol: bool, number: bool, lower: bool, upper: bool, copy: bool):
     temp_list = []
     generated_password = []
 
@@ -32,14 +33,22 @@ def generate(length: int, duplicates: bool, symbol: bool, number: bool, lower: b
         letter = random.choice(temp_list)
 
         # Non repeated values
-        # Preventing duplicates until we reach the maximum options for unique values (for long passwords)
+        # Preventing duplicates until we reach the maximum options for unique values (for longer passwords)
         if duplicates and pass_len < len(temp_list) and letter in generated_password:
             continue
 
         generated_password.append(letter)
         pass_len += 1
 
-    return "".join(map(str, generated_password))
+    generated_password = "".join(map(str, generated_password))
+
+    # Copying the generated password to clipboard (by default)
+    if copy:
+        pyperclip.copy(generated_password)
+        pyperclip.paste()
+
+    # Returns the generated password
+    return generated_password
 
 # (CLI) argeparse configuration
 def build_argparse():
@@ -51,6 +60,7 @@ def build_argparse():
     required_named.add_argument('-l', '--length', type=int, required=True, metavar='',
                                 help='The length of the password')
 
+    parser.add_argument('-C', '--copy', required=False, action='store_false', help='Copy to clipboard')
     parser.add_argument('-D', '--duplicates', required=False, action='store_false', help='Duplicates')
     parser.add_argument('-U', '--upper', required=False, action='store_false', help='Upper case letters')
     parser.add_argument('-L', '--lower', required=False, action='store_false', help='Lower case letters')
@@ -68,5 +78,5 @@ if __name__ == '__main__':
     # Letting the user know that if the inserted number has no length, there won't be any output
     assert args.length > 0, 'Password length has to be strictly positive'
     
-    # The returned value (printed password)
-    print(f'\n Generated password: {generate(**vars(args))} \n')
+    # Prints the password back to the user
+    print(f'\n Generated password: {generate(**vars(args))} \n \n' + '*'*50)
