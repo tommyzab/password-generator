@@ -1,11 +1,11 @@
 
 ## How do I run the script?
 **Run the script via the command line with the following syntax**
+
 `python3 PGenerator.py -l=Password_Length`
 
-
 #### Included options;
-(-C) Clipboard Copy,
+(-C) Copy,
 (-D) Duplicates,
 (-U) Upper-case letters,
 (-L) Lower-case letters,
